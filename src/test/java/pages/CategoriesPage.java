@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -66,5 +67,18 @@ public class CategoriesPage extends BasePage{
         WebElement row = findRowByName(name);
         String deleteButtonXPath = "./td/a[contains(@id, 'edit')]";
         row.findElement(By.xpath(deleteButtonXPath)).click();
+    }
+
+    public void clearAllCategories() {
+        WebElement element;
+        do {
+            try {
+                element = driver.findElement(By.xpath("//td/a[contains(@id, 'delete')]"));
+                element.click();
+                confirmDeletion();
+            } catch (NoSuchElementException e){
+                break;
+            }
+        } while (element != null);
     }
 }

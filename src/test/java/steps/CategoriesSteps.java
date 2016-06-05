@@ -22,10 +22,7 @@ public class CategoriesSteps {
     public CategoriesSteps createValidCategory() {
         String timestamp = String.valueOf(System.currentTimeMillis());
         createdName = String.format(CATEGORY_NAME, timestamp);
-        navigateToCategoryMenu();
-        page.clickAddCategoryLink();
-        page.fillCategoryName(createdName);
-        page.clickCreateCategory();
+        createCategory(createdName);
         return this;
     }
 
@@ -59,5 +56,17 @@ public class CategoriesSteps {
     public void checkCategoryEdited() {
         Assert.assertEquals(0, page.countCategoriesByName(createdName));
         Assert.assertEquals(1, page.countCategoriesByName(newName));
+    }
+
+    public void createCategory(String name) {
+        navigateToCategoryMenu();
+        page.clickAddCategoryLink();
+        page.fillCategoryName(name);
+        page.clickCreateCategory();
+    }
+
+    public void clearCategories() {
+        navigateToCategoryMenu();
+        page.clearAllCategories();
     }
 }

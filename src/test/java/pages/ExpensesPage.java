@@ -1,9 +1,12 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class ExpensesPage extends BasePage{
 
@@ -116,5 +119,18 @@ public class ExpensesPage extends BasePage{
 
     public void confirmDeletion() {
         driver.switchTo().alert().accept();
+    }
+
+    public void deleteAllExpenses() {
+        WebElement element;
+        do {
+            try {
+                element = driver.findElement(By.xpath("//td/a[contains(@id, 'delete')]"));
+                element.click();
+                confirmDeletion();
+            } catch (NoSuchElementException e){
+                break;
+            }
+        } while (element != null);
     }
 }

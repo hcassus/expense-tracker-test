@@ -93,4 +93,13 @@ public class ExpensesSteps {
     public void checkExpenseCloned() {
         Assert.assertEquals(2, page.countExpensesByReason(createdReason));
     }
+
+    public void clearExpenses() {
+        navigateToListExpensesMenu();
+        page.deleteAllExpenses();
+    }
+
+    private void navigateToListExpensesMenu() {
+        page.navigateToMenu("List Expenses");
+    }
 }

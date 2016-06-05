@@ -3,33 +3,24 @@ package tests;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import steps.CategoriesSteps;
 import steps.ExpensesSteps;
-import steps.LoginSteps;
 
-import java.util.concurrent.TimeUnit;
+public class ExpensesTest extends BaseTest{
 
-public class ExpensesTest {
-
-    private WebDriver driver;
-    private LoginSteps loginSteps;
     private ExpensesSteps expensesSteps;
+    private CategoriesSteps categoriesSteps;
 
     @Before
     public void setup(){
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(5L, TimeUnit.SECONDS);
-        driver.get("http://thawing-shelf-73260.herokuapp.com/index.jsp");
-        loginSteps = new LoginSteps(driver);
+        super.setup();
         expensesSteps = new ExpensesSteps(driver);
-
+        categoriesSteps = new CategoriesSteps(driver);
+        categoriesSteps.createCategory("Leisure");
     }
 
     @Test
     public void createValidExpense(){
-        loginSteps
-                .performValidLogin();
         expensesSteps
                 .createValidExpense()
                 .checkExpenseIsCreated();
@@ -37,8 +28,6 @@ public class ExpensesTest {
 
     @Test
     public void deleteExpense(){
-        loginSteps
-                .performValidLogin();
         expensesSteps
                 .createValidExpense()
                 .deleteCreatedExpense()
@@ -47,8 +36,6 @@ public class ExpensesTest {
 
     @Test
     public void editExpense(){
-        loginSteps
-                .performValidLogin();
         expensesSteps
                 .createValidExpense()
                 .editCreatedExpense()
@@ -57,8 +44,6 @@ public class ExpensesTest {
 
     @Test
     public void cloneExpense(){
-        loginSteps
-                .performValidLogin();
         expensesSteps
                 .createValidExpense()
                 .cloneCreatedExpense()
@@ -67,6 +52,10 @@ public class ExpensesTest {
 
     @After
     public void tearDown(){
+        expensesSteps
+                .clearExpenses();
+        categoriesSteps
+                .clearCategories();
         driver.quit();
     }
 }

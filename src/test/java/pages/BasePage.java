@@ -4,9 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-/**
- * Created by hcassus on 04/06/16.
- */
 public class BasePage {
 
     WebDriver driver;
