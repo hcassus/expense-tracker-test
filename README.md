@@ -11,8 +11,8 @@ UI Tests for an Expense Tracker
 * JDK
 * Firefox
 * Environment Variables
-  * VALID_LOGIN
-  * VALID_PASSWORD
+  * VALID_LOGIN (Corresponding to a valid registered user)
+  * VALID_PASSWORD (Corresponding to the correct password)
 
 ## Running Tests
 - Clone the repository
