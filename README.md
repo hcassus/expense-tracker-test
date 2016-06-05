@@ -7,12 +7,12 @@
 UI Tests for an Expense Tracker
 
 ## Prerequisites
-- Gradle
-- JDK
-- Firefox
-- Environment Variable
--- VALID_LOGIN
--- VALID_PASSWORD
+* Gradle
+* JDK
+* Firefox
+* Environment Variables
+  * VALID_LOGIN
+  * VALID_PASSWORD
 
 ## Running Tests
 - Clone the repository
