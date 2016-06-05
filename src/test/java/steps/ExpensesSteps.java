@@ -2,12 +2,8 @@ package steps;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import pages.CategoriesPage;
 import pages.ExpensesPage;
 
-/**
- * Created by hcassus on 04/06/16.
- */
 public class ExpensesSteps {
 
     private static final String DAY = "01";

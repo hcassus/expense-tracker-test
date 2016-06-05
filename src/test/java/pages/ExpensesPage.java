@@ -5,9 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/**
- * Created by hcassus on 04/06/16.
- */
 public class ExpensesPage extends BasePage{
 
     public static final String ROW_XPATH_BY_REASON = "//tr[td[position() = 4 and text() = '%s']]";
@@ -17,25 +14,25 @@ public class ExpensesPage extends BasePage{
     }
 
     @FindBy(id = "day")
-    WebElement dayField;
+    private WebElement dayField;
 
     @FindBy(id = "month")
-    WebElement monthField;
+    private WebElement monthField;
 
     @FindBy(id = "year")
-    WebElement yearField;
+    private WebElement yearField;
 
     @FindBy(id = "category")
-    WebElement categoryBox;
+    private WebElement categoryBox;
 
     @FindBy(id = "amount")
-    WebElement amountField;
+    private WebElement amountField;
 
     @FindBy(id = "reason")
-    WebElement reassonField;
+    private WebElement reassonField;
 
     @FindBy(id = "submit")
-    WebElement submitButton;
+    private WebElement submitButton;
 
     public void fillDayField(String day){
         dayField.sendKeys(day);

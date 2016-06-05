@@ -6,19 +6,15 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import steps.CategoriesSteps;
-import steps.ExpensesSteps;
 import steps.LoginSteps;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by hcassus on 04/06/16.
- */
 public class CategoriesTest {
 
-    WebDriver driver;
-    LoginSteps loginSteps;
-    CategoriesSteps categoriesSteps;
+    private WebDriver driver;
+    private LoginSteps loginSteps;
+    private CategoriesSteps categoriesSteps;
 
     @Before
     public void setup(){

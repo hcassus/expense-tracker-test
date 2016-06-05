@@ -10,14 +10,11 @@ import steps.LoginSteps;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by hcassus on 04/06/16.
- */
 public class ExpensesTest {
 
-    WebDriver driver;
-    LoginSteps loginSteps;
-    ExpensesSteps expensesSteps;
+    private WebDriver driver;
+    private LoginSteps loginSteps;
+    private ExpensesSteps expensesSteps;
 
     @Before
     public void setup(){
@@ -67,8 +64,6 @@ public class ExpensesTest {
                 .cloneCreatedExpense()
                 .checkExpenseCloned();
     }
-
-
 
     @After
     public void tearDown(){

@@ -3,9 +3,6 @@ package steps;
 import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
 
-/**
- * Created by hcassus on 04/06/16.
- */
 public class LoginSteps {
 
     LoginPage page;

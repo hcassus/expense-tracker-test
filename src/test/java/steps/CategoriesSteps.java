@@ -9,8 +9,8 @@ import pages.CategoriesPage;
  */
 public class CategoriesSteps {
 
-    public static final String CATEGORY = "cat %s";
-    String createdName;
+    private static final String CATEGORY_NAME = "cat %s";
+    private String createdName;
 
     private CategoriesPage page;
     private String newName;
@@ -21,7 +21,7 @@ public class CategoriesSteps {
 
     public CategoriesSteps createValidCategory() {
         String timestamp = String.valueOf(System.currentTimeMillis());
-        createdName = String.format(CATEGORY, timestamp);
+        createdName = String.format(CATEGORY_NAME, timestamp);
         navigateToCategoryMenu();
         page.clickAddCategoryLink();
         page.fillCategoryName(createdName);
@@ -32,7 +32,6 @@ public class CategoriesSteps {
     private void navigateToCategoryMenu() {
         page.navigateToMenu("List Categories");
     }
-
 
     public void checkCategoryIsCreated() {
         Assert.assertEquals(1, page.countCategoriesByName(createdName));
@@ -51,7 +50,7 @@ public class CategoriesSteps {
     public CategoriesSteps editCreatedCategory() {
         page.editCategoryByName(createdName);
         String timestamp = String.valueOf(System.currentTimeMillis());
-        newName = String.format(CATEGORY, timestamp);
+        newName = String.format(CATEGORY_NAME, timestamp);
         page.fillCategoryName(newName);
         page.clickSaveCategory();
         return this;

@@ -4,9 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/**
- * Created by hcassus on 04/06/16.
- */
 public class LoginPage extends BasePage{
 
     public LoginPage(WebDriver driver){
@@ -14,13 +11,13 @@ public class LoginPage extends BasePage{
     }
 
     @FindBy(id = "login")
-    WebElement loginField;
+    private WebElement loginField;
 
     @FindBy(id = "password")
-    WebElement passwordField;
+    private WebElement passwordField;
 
     @FindBy(id = "submit")
-    WebElement submitButton;
+    private WebElement submitButton;
 
     public void fillUserField(String user){
         loginField.sendKeys(user);
